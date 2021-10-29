@@ -6,8 +6,8 @@ from scipy import ndimage
 
 from LIB import *
 
-Is = Image.open('Warior.jpeg')
-I  = Is.convert('L')
+imgIS = Image.open('Warior.jpeg')
+I  = imgIS.convert('L')
 I  = numpy.asarray(I)
 I  = I / 255.0
 
@@ -28,6 +28,36 @@ kernelLG = LaplacianGauss(9,9)
 imgTS = ndimage.convelve(I, kernelTS, mode='constant', cval=0.0)
 imgGB = ndimage.convelve(I, kernelGB, mode='constant', cval=0.0) 
 imgMH = ndimage.convelve(I, kernelMH, mode='constant', cval=0.0)
-imgLP = ndimage.convelve(I, kernelLA, mode='constant', cval=0.0)
+imgLA = ndimage.convelve(I, kernelLA, mode='constant', cval=0.0)
 imgLG = ndimage.convelve(I, kernelLG, mode='constant', cval=0.0)
+
+
+plt.figure(figsize = (15, 15))
+
+plt.subplot(3, 2, 1)
+plt.imshow(imgIS)
+plt.xlabel('Input Image')
+
+plt.subplot(3, 2, 2)
+plt.imshow(imgTS)
+plt.xlabel('Image | Top Sobel')
+
+plt.subplot(3, 2, 3)
+plt.imshow(imgGB)
+plt.xlabel('Image | Gaussian Blur')
+
+plt.subplot(3, 2, 4)
+plt.imshow(imgMH)
+plt.xlabel('Image | Ricker Wavelet - Mexican Hat')
+
+plt.subplot(3, 2, 5)
+plt.imshow(imgLA)
+plt.xlabel('Image | Laplacian')
+
+plt.subplot(3, 2, 6)
+plt.imshow(imgLG)
+plt.xlabel('Image | Laplacian Gauss')
+
+plt.grid(False)
+plt.show()
 
