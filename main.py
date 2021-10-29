@@ -25,11 +25,11 @@ kernelMH = MexicanHat(3,9)
 kernelLA = laplace(9) 
 kernelLG = LaplacianGauss(9,9)
 
-imgTS = ndimage.convelve(I, kernelTS, mode='constant', cval=0.0)
-imgGB = ndimage.convelve(I, kernelGB, mode='constant', cval=0.0) 
-imgMH = ndimage.convelve(I, kernelMH, mode='constant', cval=0.0)
-imgLA = ndimage.convelve(I, kernelLA, mode='constant', cval=0.0)
-imgLG = ndimage.convelve(I, kernelLG, mode='constant', cval=0.0)
+imgTS = ndimage.convolve(I, kernelTS, mode='constant', cval=0.0)
+imgGB = ndimage.convolve(I, kernelGB, mode='constant', cval=0.0) 
+imgMH = ndimage.convolve(I, kernelMH, mode='constant', cval=0.0)
+imgLA = ndimage.convolve(I, kernelLA, mode='constant', cval=0.0)
+imgLG = ndimage.convolve(I, kernelLG, mode='constant', cval=0.0)
 
 
 plt.figure(figsize = (15, 15))
