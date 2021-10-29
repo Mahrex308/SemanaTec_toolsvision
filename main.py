@@ -6,7 +6,7 @@ from scipy import ndimage
 
 from LIB import *
 
-imgIS = Image.open('Warior.jpeg')
+imgIS = Image.open('Warriors.jpg')
 I  = imgIS.convert('L')
 I  = numpy.asarray(I)
 I  = I / 255.0
