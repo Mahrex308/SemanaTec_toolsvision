@@ -1,3 +1,5 @@
+# This is the library/classes that will help us run the main code. We have added 5 different kernels to work with and manipulate a image of our choice.
+
 import numpy
 
 # GaussBLur lo hizo Luis Fernando Gomez Benitez
