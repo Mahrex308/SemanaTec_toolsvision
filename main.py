@@ -1,3 +1,5 @@
+# Inclusion de las librerias necesarias para el funcionmamiento del codigo.
+
 import matplotlib.pyplot as plt
 import numpy
 
@@ -6,16 +8,21 @@ from scipy import ndimage
 
 from LIB import *
 
+# Importacion de las imagenes a ser analizadas.
+
 imgIS = Image.open('Warriors.jpg')
 I  = imgIS.convert('L')
 I  = numpy.asarray(I)
 I  = I / 255.0
 
 # Padding
+
 def pad_with(vector, pad_width, iaxis, kwargs):
     pad_value = kwargs.get('padder', 10)
     vector[:pad_width[0]] = pad_value
     vector[-pad_width[1]:] = pad_value
+    
+# Procesado de imagines Atravez de los distintos kernels
 
 I = numpy.pad(I, 10, pad_with, padder=0)
 
@@ -31,6 +38,7 @@ imgMH = ndimage.convolve(I, kernelMH, mode='constant', cval=0.0)
 imgLA = ndimage.convolve(I, kernelLA, mode='constant', cval=0.0)
 imgLG = ndimage.convolve(I, kernelLG, mode='constant', cval=0.0)
 
+# Mostrar los resultados despues de el procesamiento.
 
 plt.figure(figsize = (15, 15))
 
